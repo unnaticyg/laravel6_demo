@@ -8,7 +8,7 @@
                 <div class="card-header">Users <span style="float:right"><a href="{{route('users.create')}}">Add New User</a><span></div>
 
                 <div class="card-body">
-                    <table class="table table-bordered data-table">
+                    <table style="font-size:13px;" class="table table-bordered data-table">
                         <thead>
                             <tr>
                                 <th>Id</th>
