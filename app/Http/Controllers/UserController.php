@@ -32,7 +32,7 @@ class UserController extends Controller
                 $deleteRoute = route('users.destroy', $data->id);
                 $button = '<a href="'.$editRoute.'" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Edit" class="edit btn btn-success edit-post">Edit</a>';
                 $button .= '&nbsp;&nbsp;';
-                $button .= '<a href="'.$deleteRoute.'" class="delete-user" data-toggle="tooltip" data-original-title="Delete" data-id="'.$data->id.'" class="delete btn btn-danger">Delete</a>';
+                $button .= '<a href="javascript:void(0)" class="delete-user" data-toggle="tooltip" data-original-title="Delete" data-id="'.$data->id.'" class="delete btn btn-danger">Delete</a>';
                 return $button;
                 })
             ->rawColumns(['action'])
@@ -54,6 +54,10 @@ class UserController extends Controller
         return view('users.create');
     }
 
+    /**
+     * Insert the new users
+     * @param Request #request
+     */
     public function store(Request $request)
     {
         try{

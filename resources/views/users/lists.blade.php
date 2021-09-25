@@ -30,7 +30,7 @@
 @endsection
 <script src="{{ URL::asset('js/jquery.js') }}"></script>  
 <script type="text/javascript">
-  //$(function () {
+  $(function () {
     $(document).ready( function () {
         $.noConflict();
         var table = $('.data-table').DataTable({
@@ -47,22 +47,22 @@
     });
 
     }); 
-
-    $('.data-table .delete-user').on('click',function () {
-        alert(1);
-    // var user_id = $(this).data("id");
-    // confirm("Are You sure want to delete !");
-    // $.ajax({
-    //     type: "get",
-    //     url: "users/destroy/"+user_id,
-    //     success: function (data) {
-    //     var oTable = $('#data-table').dataTable(); 
-    //     oTable.fnDraw(false);
-    //     },
-    //     error: function (data) {
-    //         console.log('Error:', data);
-    //     }
-    // });
-    }); 
-  //});
+    $(document).on('click', '.delete-user', function(){
+        var user_id = $(this).data("id");
+        var r = confirm("Are You sure want to delete ?");
+        if (r == true) {
+            $.ajax({
+                type: "GET",
+                url: "users/destroy/"+user_id,
+                success: function (data) {
+                var oTable = $('.data-table').dataTable(); 
+                oTable.fnDraw(false);
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                }
+            });
+        }
+        })
+  });
 </script>

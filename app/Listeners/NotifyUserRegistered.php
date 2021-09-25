@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use App\User;
 use Mail;
+use App\Mail\WelcomeMail;
 
 class NotifyUserRegistered
 {
@@ -29,11 +30,6 @@ class NotifyUserRegistered
     public function handle(UserRegistered $event)
     {
         $user = User::find($event->userId)->toArray();
-        Mail::send('emails.registration', $user, function($message) use ($user) {
-            $message->to($user['email']);
-            $message->from('unnatiprajapati81@gmail.com','TEST');
-            $message->subject('Register User Testing');
-            
-        });
+        Mail::to($user['email'])->send(new WelcomeMail($user));
     }
 }

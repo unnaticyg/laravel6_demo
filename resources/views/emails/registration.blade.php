@@ -1,7 +1,11 @@
 <br/>
-Hello, <b>TEST USER</b>,
-<br>
-You are successfully registered on our App. Contratulations !!!
-
+Hello, <b>{{$first_name}} {{$last_name}}</b>
+<br/>
+<br/>
+You are successfully registered on our App.
+<br/>
+<br/>
+<br/>
+<br/>
 Thanks,<br>
-{{ config('app.name') }}
+Administrator from App
