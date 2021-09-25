@@ -35,6 +35,9 @@ class UserController extends Controller
                 $button .= '<a href="javascript:void(0)" class="delete-user delete btn btn-danger btn-sm" data-toggle="tooltip" data-original-title="Delete" data-id="'.$data->id.'">Delete</a>';
                 return $button;
                 })
+                ->addColumn('full_name', function ($data) {
+                    return $data->first_name.' '.$data->last_name;
+                })
             ->rawColumns(['action'])
             ->addIndexColumn()
             ->make(true);
