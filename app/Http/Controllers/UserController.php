@@ -30,9 +30,9 @@ class UserController extends Controller
             ->addColumn('action', function($data){
                 $editRoute = route('users.edit', $data->id);
                 $deleteRoute = route('users.destroy', $data->id);
-                $button = '<a href="'.$editRoute.'" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Edit" class="edit btn btn-success edit-post">Edit</a>';
+                $button = '<a href="'.$editRoute.'" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Edit" class="edit btn btn-success edit-post btn-sm">Edit</i></a>';
                 $button .= '&nbsp;&nbsp;';
-                $button .= '<a href="javascript:void(0)" class="delete-user" data-toggle="tooltip" data-original-title="Delete" data-id="'.$data->id.'" class="delete btn btn-danger">Delete</a>';
+                $button .= '<a href="javascript:void(0)" class="delete-user delete btn btn-danger btn-sm" data-toggle="tooltip" data-original-title="Delete" data-id="'.$data->id.'">Delete</a>';
                 return $button;
                 })
             ->rawColumns(['action'])
