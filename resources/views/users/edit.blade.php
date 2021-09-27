@@ -52,6 +52,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                            <div class="col-md-6">
+                                <input id="gender_0" type="radio" value="Male"  name="gender" <?php if($user->gender == 'Male') { ?>checked="checked"<?php } ?> value="{{ old('gender') }}">Male
+                                <input id="gender_1" type="radio" value="Female" name="gender" <?php if($user->gender == 'Female') { ?>checked="checked"<?php } ?>  value="{{ old('gender') }}">Female
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

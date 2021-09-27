@@ -71,16 +71,18 @@ class UserController extends Controller
                 'role'=>[''],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8'],
+                'gender'=>[''],
             ]);
 
             $userData = array('first_name' => $request['first_name'],
                             'last_name' => $request['last_name'],
                             'role' => 'User',
                             'email'=> $request['email'],
-                            'password' => Hash::make($request['password']));
-
+                            'password' => Hash::make($request['password']),
+                            'gender'=> $request['gender']);
+        
             $user = User::create($userData);
-            
+
             //Send mail to registered user
             event(new UserRegistered($user->id));
 
@@ -115,10 +117,12 @@ class UserController extends Controller
                 'first_name' => ['required', 'string', 'max:255'],
                 'last_name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255'],
+                'gender' => [''],
             ]);
             $userData = User::find($id);
             $userData->first_name = $request['first_name'];
             $userData->last_name = $request['last_name'];
+            $userData->gender = $request['gender'];
             $userData->email = request('email');
             $userData->save();
             $userData->update($request->all());
