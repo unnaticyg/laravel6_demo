@@ -8,6 +8,7 @@ use App\User;
 use Redirect,Response;
 use Event;
 use App\Events\UserRegistered;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -76,7 +77,7 @@ class UserController extends Controller
                             'last_name' => $request['last_name'],
                             'role' => 'User',
                             'email'=> $request['email'],
-                            'password' => $request['password']);
+                            'password' => Hash::make($request['password']));
 
             $user = User::create($userData);
             
