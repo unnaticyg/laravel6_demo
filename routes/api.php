@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Api\UserController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,5 +18,5 @@ use App\Http\Controllers\UserController;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::get('users','UserController@getAllUsersApi');
-Route::get('users/{id}','UserController@getUserDetailApi');
+Route::get('users','Api\UserController@getAllUsers');
+Route::get('users/{id}','Api\UserController@getUserDetails');

@@ -150,30 +150,4 @@ class UserController extends Controller
     }
 
     //****************************************************** */
-    //*******      API CALLS FOR NOW  ****************************** */
-    public function getAllUsersApi(){
-        $response = User::all();
-        if(!empty($response)){
-            $response['status'] = 1;
-            $response['message'] = 'User fetched Successfully';    
-        }else{
-            $response['status'] = 0;
-            $response['status'] = 'User Not found';
-        }
-        return response()->json($response, 200);
-    }
-
-    public function getUserDetailApi($id){
-        $response =  User::find($id);
-        if(!empty($response)){
-            $response['status'] = 1;
-            $response['message'] = 'User fetched Successfully';    
-        }else{
-            $response['status'] = 0;
-            $response['message'] = 'User Not found';
-        }
-        return response()->json($response, 200);
-    }
-
-    //****************************************************** */
 }

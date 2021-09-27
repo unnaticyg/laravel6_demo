@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
 
                             <div class="col-md-6">
                                 <input id="gender_0" type="radio" value="Male" checked="checked" name="gender" value="{{ old('gender') }}">Male
